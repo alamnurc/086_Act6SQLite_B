@@ -14,7 +14,7 @@ import com.google.android.material.textfield.TextInputEditText;
 import java.util.HashMap;
 
 public class TemanBaru extends AppCompatActivity {
-    private TextInputEditText tNama, tTelpon;
+    private TextInputEditText tNama, tTelepon;
     private Button simpanBtn;
     String nm,tlp;
     DBController controller = new DBController(this);
@@ -25,21 +25,21 @@ public class TemanBaru extends AppCompatActivity {
         setContentView(R.layout.activity_teman_baru);
 
         tNama = (TextInputEditText) findViewById(R.id.tietNama);
-        tTelpon = (TextInputEditText) findViewById(R.id.tietTelpon);
+        tTelepon = (TextInputEditText) findViewById(R.id.tietTelepon);
         simpanBtn = (Button) findViewById(R.id.buttonSave);
 
         simpanBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(tNama.getText().toString().equals("")||tTelpon.getText().toString().equals("")){
+                if(tNama.getText().toString().equals("")||tTelepon.getText().toString().equals("")){
                     Toast.makeText(TemanBaru.this, "Data belum komplit!!", Toast.LENGTH_SHORT).show();
                 }else{
                     nm = tNama.getText().toString();
-                    tlp = tTelpon.getText().toString();
+                    tlp = tTelepon.getText().toString();
 
                     HashMap<String,String> qvalues = new HashMap<>();
                     qvalues.put("nama",nm);
-                    qvalues.put("telpon",tlp);
+                    qvalues.put("telepon",tlp);
 
                     controller.insertData(qvalues);
                     callHome();

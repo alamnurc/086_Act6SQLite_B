@@ -3,9 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2735" />
+        <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.2735" />
+        <entry key="app/src/main/res/layout/activity_edit_teman.xml" value="0.15714285714285714" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/activity_teman_baru.xml" value="0.42391304347826086" />
+        <entry key="app/src/main/res/layout/activity_teman_baru.xml" value="0.15714285714285714" />
         <entry key="app/src/main/res/layout/row_data_teman.xml" value="0.1945288753799392" />
+        <entry key="app/src/main/res/menu/menu.xml" value="0.1" />
+        <entry key="app/src/main/res/menu/popup_menu.xml" value="0.1" />
       </map>
     </option>
   </component>

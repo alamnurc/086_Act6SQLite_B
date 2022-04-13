@@ -16,7 +16,7 @@ public class DBController extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("create table teman (id integer primary key, nama text, telpon text)");
+        db.execSQL("create table teman (id integer primary key, nama text, telepon text)");
     }
 
     @Override
@@ -26,12 +26,27 @@ public class DBController extends SQLiteOpenHelper {
     }
 
     public void insertData(HashMap<String,String> queryValues){
-        SQLiteDatabase basisdata = this.getWritableDatabase();
+        SQLiteDatabase db = this.getWritableDatabase();
         ContentValues nilai = new ContentValues();
         nilai.put("nama", queryValues.get("nama"));
-        nilai.put("telpon", queryValues.get("telpon"));
-        basisdata.insert("teman",null,nilai);
-        basisdata.close();
+        nilai.put("telepon", queryValues.get("telepon"));
+        db.insert("teman",null,nilai);
+        db.close();
+    }
+
+    public void UpdateData(HashMap<String,String> queryValues){
+        SQLiteDatabase db = getWritableDatabase();
+        ContentValues nilai = new ContentValues();
+        nilai.put("nama", queryValues.get("nama"));
+        nilai.put("telepon", queryValues.get("telepon"));
+        db.update("teman", nilai, "id=?", new String[]{queryValues.get("id")});
+        db.close();
+    }
+
+    public void DeleteData(HashMap<String,String> queryValue){
+        SQLiteDatabase db = getWritableDatabase();
+        db.delete("teman", "id=?", new String[]{queryValue.get("id")});
+        db.close();
     }
 
     public ArrayList<HashMap<String,String>> getAllTeman(){
@@ -45,7 +60,7 @@ public class DBController extends SQLiteOpenHelper {
                 HashMap<String,String> map = new HashMap<>();
                 map.put("id",cursor.getString(0));
                 map.put("nama", cursor.getString(1));
-                map.put("telpon",cursor.getString(2));
+                map.put("telepon",cursor.getString(2));
                 daftarTeman.add(map);
             }while (cursor.moveToNext());
         }
